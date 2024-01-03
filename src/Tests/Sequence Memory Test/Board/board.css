@@ -1,0 +1,31 @@
+.test-container {
+  width: 100vw;
+  height: calc(72vh + 6px);
+  position: absolute;
+  top: 48px;
+  left: -6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-color: rgb(43, 135, 209);
+}
+
+.board-score {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 36px;
+  font-size: 32px;
+  font-weight: 400;
+}
+
+.board-score .level {
+  color: white;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 116px);
+  gap: 16px;
+}

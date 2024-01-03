@@ -1,0 +1,21 @@
+.square {
+  aspect-ratio: 1/1;
+  background-color: rgba(0, 0, 102, 0.15);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.square[fast-animation='1'] {
+  animation: light 0.25s 1;
+}
+
+.animation {
+  animation: light 0.6s 1;
+}
+
+@keyframes light {
+  50% {
+    background-color: white;
+  }
+}

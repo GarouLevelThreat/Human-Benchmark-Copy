@@ -1,0 +1,54 @@
+.game-info-container {
+  position: absolute;
+  top: calc(72vh + 48px);
+  left: 0;
+  width: 100%;
+  height: 91vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-color: rgb(240, 240, 240);
+}
+
+.game-info-container .cards-container {
+  display: grid;
+  place-content: center;
+  grid-template-columns: repeat(2, 30vw);
+  gap: 20px;
+}
+
+.statistics,
+.about {
+  position: relative;
+  background-color: white;
+  aspect-ratio: 1/1;
+  padding: 32px;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 5px;
+}
+
+.statistics h1,
+.about h1 {
+  color: rgb(51, 51, 51);
+  font-weight: 500;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.img-container {
+  width: 100%;
+  height: 80%;
+}
+
+.img-container img {
+  object-fit: contain;
+  width: 100%;
+}
+
+.about .description p {
+  margin-bottom: 20px;
+  line-height: 1.5;
+}

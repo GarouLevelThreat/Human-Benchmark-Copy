@@ -1,0 +1,48 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  z-index: 100;
+}
+
+.navbar ul {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar li {
+  padding: 14px 12px;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.navbar li:hover {
+  background-color: rgb(240, 240, 240);
+}
+
+.navbar li a {
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.navbar .left-side .human-benchmark-link a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar .human-benchmark-icon {
+  width: 14px;
+  height: 14px;
+}

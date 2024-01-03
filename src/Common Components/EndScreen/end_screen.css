@@ -1,0 +1,82 @@
+.end-screen {
+  width: 100vw;
+  height: calc(72vh + 6px);
+  position: absolute;
+  top: 48px;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  background-color: rgb(43, 135, 209);
+  animation: end 0.5s linear 0s 1 normal none running;
+}
+
+.end-screen .sequence-memory-game-icon {
+  width: 80px;
+  height: 80px;
+}
+
+.end-screen .game-title {
+  color: white;
+  font-size: 24px;
+  margin-top: 30px;
+}
+
+.end-screen .end-screen-score {
+  color: white;
+  font-size: 80px;
+  font-weight: 400;
+  margin-top: 12px;
+  margin-bottom: 30px;
+}
+
+.end-screen .info {
+  color: white;
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.end-screen .btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.end-screen .btn-container .save-score-btn,
+.end-screen .btn-container .try-again-btn {
+  padding: 12px 30px;
+  border: none;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.end-screen .btn-container .save-score-btn {
+  background-color: rgb(255, 209, 84);
+}
+
+.end-screen .btn-container .try-again-btn {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.end-screen .btn-container .save-score-btn:hover,
+.end-screen .btn-container .try-again-btn:hover {
+  background-color: white;
+}
+
+@keyframes end {
+  0%, 100% {
+    background-color: rgb(43, 135, 209);
+  }
+
+  20% {
+    background-color: rgb(255, 102, 102);
+  }
+}

@@ -58,11 +58,11 @@ export default function Board() {
     if (isRightMove) {
       if (move + 1 === level) {
         // add level-passed animation
-        const gameContainer = document.querySelector(".game-container");
-        gameContainer.classList.add("level-passed");
-        setTimeout(() => {
-          gameContainer.classList.remove("level-passed");
-        }, 500)
+        const testContainer = document.querySelector(".test-container");
+				testContainer.classList.add("level-passed");
+				setTimeout(() => {
+					testContainer.classList.remove("level-passed");
+				}, 500);
 
         setLevel(level + 1);
         updatePattern();

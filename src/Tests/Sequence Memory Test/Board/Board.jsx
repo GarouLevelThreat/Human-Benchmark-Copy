@@ -82,32 +82,34 @@ export default function Board() {
   }, []);
 
   return (
-    <>
-      {lost === false ? (
-        <div class="test-container">
-          <h1 className="board-score">Level: <span className="level">{level}</span></h1>
-          
-          <div className="board">
-            <Square id={0} onClick={() => handleClick(0)} />
-            <Square id={1} onClick={() => handleClick(1)} />
-            <Square id={2} onClick={() => handleClick(2)} />
-            <Square id={3} onClick={() => handleClick(3)} />
-            <Square id={4} onClick={() => handleClick(4)} />
-            <Square id={5} onClick={() => handleClick(5)} />
-            <Square id={6} onClick={() => handleClick(6)} />
-            <Square id={7} onClick={() => handleClick(7)} />
-            <Square id={8} onClick={() => handleClick(8)} />
-          </div>
-        </div>
-      ) : (
-        <>
-          {end === false ? (
-              <StartScreen index={0}/>
-          ) : (
-            <EndScreen index={0} level={level} onClick={() => setEnd(false)}/>
-          )}
-        </>
-      )}
-    </>
-  );
+		<>
+			{lost === false && end === true ? (
+				<div class="test-container">
+					<h1 className="board-score">
+						Level: <span className="level">{level}</span>
+					</h1>
+
+					<div className="board">
+						<Square id={0} onClick={() => handleClick(0)} />
+						<Square id={1} onClick={() => handleClick(1)} />
+						<Square id={2} onClick={() => handleClick(2)} />
+						<Square id={3} onClick={() => handleClick(3)} />
+						<Square id={4} onClick={() => handleClick(4)} />
+						<Square id={5} onClick={() => handleClick(5)} />
+						<Square id={6} onClick={() => handleClick(6)} />
+						<Square id={7} onClick={() => handleClick(7)} />
+						<Square id={8} onClick={() => handleClick(8)} />
+					</div>
+				</div>
+			) : (
+				<>
+					{end === false ? (
+						<StartScreen index={1} />
+					) : (
+						<EndScreen index={1} level={level} onClick={() => setEnd(false)} />
+					)}
+				</>
+			)}
+		</>
+	);
 }

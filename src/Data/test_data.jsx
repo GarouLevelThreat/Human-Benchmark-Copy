@@ -1,5 +1,6 @@
 import SequenceMemoryTest from "../Tests/Sequence Memory Test/SequenceMemoryTest"
 import SequenceMemoryTestIcon from "./icons/SequenceMemoryTestIcon"
+import ReactionTimeTest from "../Tests/Reaction Time Test/ReactionTimeTest";
 import ReactionTimeTestIcon from "./icons/ReactionTimeTestIcon";
 import AimTrainerTestIcon from "./icons/AimTrainerTestIcon";
 import NumberMemoryTestIcon from "./icons/NumberMemoryTestIcon";
@@ -11,12 +12,13 @@ const data = [
 		// 0.
 		icon: () => <ReactionTimeTestIcon width={100} height={100} />,
 		start_screen: {
-			game: () => <SequenceMemoryTest />,
+			game: () => <ReactionTimeTest />,
 			title: "Reaction Time Test",
 			info: [
 				"When the box turns green, click as quickly as you can.",
 				"Click anywhere to start.",
 			],
+			btn: "",
 		},
 		game_info: {
 			graph: "/src/Data/images/reaction_time_test_graph.png",
@@ -31,9 +33,9 @@ const data = [
 			],
 		},
 		end_screen: {
-			title: "Sequence Memory",
+			title: "Reaction Time",
 			score: (score) => {
-				return `Level ${score}`;
+				return `${score}ms`;
 			},
 		},
 	},
@@ -44,6 +46,7 @@ const data = [
 			game: () => <SequenceMemoryTest />,
 			title: "Sequence Memory Test",
 			info: ["Memorize the pattern."],
+			btn: "Start",
 		},
 		game_info: {
 			graph: "/src/Data/images/sequence_memory_test_graph.png",
@@ -70,6 +73,7 @@ const data = [
 				"Hit 30 targets as quickly as you can.",
 				"Click the target above to begin.",
 			],
+			btn: "Start",
 		},
 		game_info: {
 			graph: "/src/Data/images/aim_trainer_test_graph.png",
@@ -96,6 +100,7 @@ const data = [
 			info: [
 				"The average person can remember 7 numbers at once. Can you do more?",
 			],
+			btn: "Start",
 		},
 		game_info: {
 			graph: "/src/Data/images/number_memory_test_graph.png",
@@ -123,6 +128,7 @@ const data = [
 			info: [
 				"You will be shown words, one at a time. If you've seen a word during the test, click SEEN. If it's a new word, click NEW",
 			],
+			btn: "Start",
 		},
 		game_info: {
 			graph: "/src/Data/images/verbal_memory_test_graph.png",
@@ -150,6 +156,7 @@ const data = [
 				"Click the squares in order according to their numbers.",
 				"The test will get progressively harder.",
 			],
+			btn: "Start Test",
 		},
 		game_info: {
 			graph: "/src/Data/images/chimp_test_graph.png",
@@ -174,6 +181,7 @@ const data = [
 			game: () => <SequenceMemoryTest />,
 			title: "Visual Memory Test",
 			info: ["Memorize the squares."],
+			btn: "Start",
 		},
 		game_info: {
 			graph: "/src/Data/images/visual_memory_test_graph.png",
@@ -199,6 +207,7 @@ const data = [
 			game: () => <SequenceMemoryTest />,
 			title: "Typing Test",
 			info: ["How many words per minute can you type?"],
+			btn: "Start",
 		},
 		game_info: {
 			graph: "/src/Data/images/typing_test_graph.png",

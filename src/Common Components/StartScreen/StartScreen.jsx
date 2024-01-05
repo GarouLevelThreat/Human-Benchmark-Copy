@@ -15,21 +15,33 @@ export default function StartScreen({index=0}) {
 			{text}
 		</p>
 	));
+  const btn = data[index].start_screen.btn;
+
+	function startBtn() {
+		return (
+			<button className="start-btn" onClick={() => setStart(true)}>
+				{btn}
+			</button>
+		);
+	}
 
 	return (
 		<>
 			<Navbar />
 			{start === false ? (
 				<>
-					<div className="start-screen">
+					<div
+						className="start-screen"
+						onClick={() => {
+							if (index === 0) setStart(true);
+						}}
+					>
 						<div className="start-screen-container">
 							<Icon />
 
 							<h1 className="game-title">{title}</h1>
 							<div className="info-container">{info}</div>
-							<button className="start-btn" onClick={() => setStart(true)}>
-								Start
-							</button>
+							{btn === "" ? "" : startBtn()}
 						</div>
 					</div>
 				</>

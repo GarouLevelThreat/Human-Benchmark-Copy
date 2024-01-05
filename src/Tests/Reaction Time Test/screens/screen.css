@@ -1,0 +1,28 @@
+.test-container {
+  width: 100vw;
+  height: 72vh;
+  position: absolute;
+  top: 48px;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  background-color: rgb(43, 135, 209);
+  cursor: pointer;
+}
+
+.test-container .title {
+  color: white;
+  font-size: 80px;
+  font-weight: 500;
+  margin-top: 20px;
+}
+
+.test-container .info {
+  color: white;
+  font-size: 32px;
+  margin-top: 20px;
+}

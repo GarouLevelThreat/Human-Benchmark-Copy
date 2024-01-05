@@ -2,7 +2,7 @@ import Navbar from "../Navbar/Navbar";
 import data from "../../Data/test_data";
 import "./end_screen.css";
 
-export default function EndScreen({ index, level, onClick }) {
+export default function EndScreen({ index, level, animation = "", onClick }) {
 	const Icon = data[index].icon;
 	const title = data[index].end_screen.title;
 	const score = data[index].end_screen.score(level);
@@ -10,7 +10,7 @@ export default function EndScreen({ index, level, onClick }) {
 	return (
 		<>
 			<Navbar />
-			<div className="end-screen">
+			<div className={`end-screen ${animation}`}>
 				<div className="end-screen-container">
 					<Icon />
 

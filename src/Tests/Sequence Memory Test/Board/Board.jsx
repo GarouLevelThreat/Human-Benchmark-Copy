@@ -8,83 +8,82 @@ export default function Board() {
   const [level, setLevel] = useState(1);
   const [pattern, setPattern] = useState([generateRandomMove()]);
   const [move, setMove] = useState(0);
-  const [lost, setLost] = useState(false);
-  const [end, setEnd] = useState(true);
+	const [lost, setLost] = useState(false);
+	const [end, setEnd] = useState(true);
 
-  function generateRandomMove() {
-    return Math.floor(Math.random() * 9);
-  }
+	function generateRandomMove() {
+		return Math.floor(Math.random() * 9);
+	}
 
-  function updatePattern() {
-    const newPattern = pattern;
-    newPattern.push(generateRandomMove());
-    setPattern(newPattern);
-  }
+	function updatePattern() {
+		const newPattern = pattern;
+		newPattern.push(generateRandomMove());
+		setPattern(newPattern);
+	}
 
-  function displayPattern(index) {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          const square = document.querySelector(`[id="${pattern[index]}"]`);
-          if (square.classList.contains("animation")) {
-            square.classList.remove("animation");
-          }
-          square.classList.add("animation");
-          setTimeout(() => {
-            square.classList.remove("animation");
-          }, 660);
-          resolve(pattern[index]);
-        }, 710);
-      });
-  }
+	function displayPattern(index) {
+		return new Promise((resolve, reject) => {
+			setTimeout(() => {
+				const square = document.querySelector(`[id="${pattern[index]}"]`);
+				if (square.classList.contains("animation")) {
+					square.classList.remove("animation");
+				}
+				square.classList.add("animation");
+				setTimeout(() => {
+					square.classList.remove("animation");
+				}, 660);
+				resolve(pattern[index]);
+			}, 710);
+		});
+	}
 
-  function display() {
-    for (let i = 1, p = displayPattern(0); i < pattern.length; i++) {
-      p = p.then((value) => {
-        return displayPattern(i);
-      })
-    }
-  }
+	function display() {
+		for (let i = 1, p = displayPattern(0); i < pattern.length; i++) {
+			p = p.then((value) => {
+				return displayPattern(i);
+			});
+		}
+	}
 
-  function check(id) {
-    if (id === pattern[move]) {
-      return 1;
-    }
-    return 0;
-  }
+	function check(id) {
+		if (id === pattern[move]) {
+			return 1;
+		}
+		return 0;
+	}
 
-  function handleClick(id) {
-    const isRightMove = check(id);
+	function handleClick(id) {
+		const isRightMove = check(id);
 
-    if (isRightMove) {
-      if (move + 1 === level) {
-        // add level-passed animation
-        const testContainer = document.querySelector(".test-container");
+		if (isRightMove) {
+			if (move + 1 === level) {
+				// add level-passed animation
+				const testContainer = document.querySelector(".test-container");
 				testContainer.classList.add("level-passed");
 				setTimeout(() => {
 					testContainer.classList.remove("level-passed");
 				}, 500);
 
-        setLevel(level + 1);
-        updatePattern();
-        setMove(0);
-        display();
-      } else {
-        setMove(move + 1);
-      }
+				setLevel(level + 1);
+				updatePattern();
+				setMove(0);
+				display();
+			} else {
+				setMove(move + 1);
+			}
+		} else {
+			setLost(true);
+		}
+	}
 
-    } else {
-      setLost(true);
-    }
-  }
-  
-  useEffect(() => {
-    display();
-  }, []);
+	useEffect(() => {
+		display();
+	}, []);
 
-  return (
+	return (
 		<>
 			{lost === false && end === true ? (
-				<div class="test-container">
+				<div className="test-container">
 					<h1 className="board-score">
 						Level: <span className="level">{level}</span>
 					</h1>
@@ -106,7 +105,12 @@ export default function Board() {
 					{end === false ? (
 						<StartScreen index={1} />
 					) : (
-						<EndScreen index={1} level={level} onClick={() => setEnd(false)} />
+						<EndScreen
+							index={1}
+							level={level}
+							animation="end"
+							onClick={() => setEnd(false)}
+						/>
 					)}
 				</>
 			)}

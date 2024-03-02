@@ -5,11 +5,12 @@ import EndScreen from "../../../Common Components/EndScreen/EndScreen";
 import "./board.css"
 
 export default function Board() {
-  const [level, setLevel] = useState(1);
-  const [pattern, setPattern] = useState([generateRandomMove()]);
-  const [move, setMove] = useState(0);
+	const [level, setLevel] = useState(1);
+	const [pattern, setPattern] = useState([generateRandomMove()]);
+	const [move, setMove] = useState(0);
 	const [lost, setLost] = useState(false);
-	const [end, setEnd] = useState(true);
+	// const [end, setEnd] = useState(true);
+	// const [canPlay, setCanPlay] = useState(false);
 
 	function generateRandomMove() {
 		return Math.floor(Math.random() * 9);
@@ -82,7 +83,7 @@ export default function Board() {
 
 	return (
 		<>
-			{lost === false && end === true ? (
+			{lost === false ? (
 				<div className="test-container">
 					<h1 className="board-score">
 						Level: <span className="level">{level}</span>
@@ -102,18 +103,28 @@ export default function Board() {
 				</div>
 			) : (
 				<>
-					{end === false ? (
-						<StartScreen index={1} />
-					) : (
-						<EndScreen
-							index={1}
-							level={level}
-							animation="end"
-							onClick={() => setEnd(false)}
-						/>
-					)}
+					<EndScreen
+						index={1}
+						level={level}
+						animation="end"
+						onClick={() => <StartScreen index={1} />}
+					/>
 				</>
 			)}
 		</>
 	);
 }
+
+/*
+&& end === true
+{end === false ? (
+  <StartScreen index={1} />
+) : (
+  <EndScreen
+    index={1}
+    level={level}
+    animation="end"
+    onClick={() => setEnd(false)}
+  />
+)}
+*/

@@ -109,7 +109,7 @@ export default function ReactionTimeTest() {
 				<EndScreen
 					index={0}
 					level={calcResult()}
-					onClick={() => setEnd(false)}
+					onClick={() => <StartScreen index={0} />}
 				/>
 			)}
 		</>
